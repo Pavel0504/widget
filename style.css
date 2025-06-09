@@ -1,0 +1,339 @@
+/* Стили для кастомного модального окна выбора товаров */
+
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.custom-modal {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1000px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.custom-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e1e5e9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+}
+
+.custom-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.custom-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #95a5a6;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.custom-modal-close:hover {
+    background: #ecf0f1;
+    color: #7f8c8d;
+}
+
+.custom-modal-content {
+    padding: 24px;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-filters {
+    margin-bottom: 24px;
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.filter-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-item {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-item:last-child {
+    flex: none;
+}
+
+.custom-input, .custom-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+    transition: border-color 0.2s ease;
+}
+
+.custom-input:focus, .custom-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.custom-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-width: 100px;
+}
+
+.custom-btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.custom-btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.custom-btn-secondary {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.custom-btn-secondary:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+.custom-products-table {
+    flex: 1;
+    overflow: auto;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    background: white;
+}
+
+.custom-products-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.custom-products-table th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e1e5e9;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.custom-products-table th:first-child {
+    width: 40px;
+    text-align: center;
+}
+
+.custom-products-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f3f4;
+    color: #4b5563;
+    vertical-align: middle;
+}
+
+.custom-products-table tr:hover {
+    background: #f9fafb;
+}
+
+.custom-products-table tr:hover td {
+    background: transparent;
+}
+
+.custom-products-table td:first-child {
+    text-align: center;
+}
+
+.product-name {
+    font-weight: 500;
+    color: #111827;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.product-sku {
+    font-family: 'Monaco', 'Consolas', monospace;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.product-price {
+    font-weight: 600;
+    color: #059669;
+    text-align: right;
+}
+
+.product-reserved, .product-available {
+    text-align: center;
+    font-weight: 500;
+}
+
+.product-reserved {
+    color: #dc2626;
+}
+
+.product-available {
+    color: #059669;
+}
+
+.loading, .no-products {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.custom-modal-footer {
+    padding: 20px 24px;
+    border-top: 1px solid #e1e5e9;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Стили для чекбоксов */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #3b82f6;
+    cursor: pointer;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .custom-modal {
+        width: 95%;
+        max-height: 90vh;
+        margin: 20px;
+    }
+    
+    .filter-row {
+        flex-direction: column;
+    }
+    
+    .filter-item {
+        min-width: 100%;
+    }
+    
+    .custom-modal-footer {
+        flex-direction: column;
+    }
+    
+    .custom-btn {
+        width: 100%;
+    }
+}
+
+/* Скрытие стандартных выпадающих списков AmoCRM когда открыта наша модалка */
+.custom-modal-overlay ~ .control--suggest--list {
+    display: none !important;
+}
+
+/* Анимации */
+.custom-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.custom-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Улучшенные скроллбары */
+.custom-products-table::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-products-table::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.custom-products-table::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.custom-products-table::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
