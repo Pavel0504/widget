@@ -1,28 +1,12 @@
 {
-  "widget": {
-    "name": "custom_products_selector",
-    "version": "1.0.0",
-    "interface_version": 2,
-    "init_once": false,
-    "locale": ["ru"],
-    "installation": true,
-    "settings": []
-  },
-  "locations": [
-    "lcard"
-  ],
-  "author": {
-    "name": "Custom Products Widget",
-    "email": "support@example.com",
-    "url": "https://example.com"
-  },
-  "description": "Кастомное окно выбора товаров для счетов с расширенными фильтрами",
-  "short_description": "Улучшенный выбор товаров",
-  "version": "1.0.0",
-  "images": {
-    "logo": "https://example.com/logo.png",
-    "images": [
-      "https://example.com/screenshot.png"
-    ]
+  "code": "custom_products_selector",
+  "name": "Выбор товаров для счетов",
+  "version": "1.0.1",
+  "url": "https://widgetsss.netlify.app/",
+  "settings": [],
+  "locations": {
+    "lcard": {
+      "html": "widget.html"
+    }
   }
 }
